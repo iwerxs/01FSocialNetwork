@@ -1,0 +1,81 @@
+https://app.eraser.io/
+
+Diagram generation for NextJS Social Network Project
+
+DB TABLES
+users [icon: user, color: yellow] {
+  id string pk
+  name string
+  description string
+  city string
+  school string
+  work string
+  website string
+}
+
+posts [icon: file-text, color: blue] {
+  id string pk
+  user_id string
+  image string
+  description string
+  created_at timestamp
+}
+
+comments [icon: message-circle, color: green] {
+  id string pk
+  post_id string
+  user_id string
+  content string
+  created_at string
+}
+
+follow-request [icon: send, color: orange] {
+  id string pk
+  sender_id string fk
+  receiver_id string fk
+  status string
+  created_at timestamp
+}
+
+followers [icon: users, color:purple] {
+  id status pk
+  follower_id string fk
+  followed_id string fk
+  created_at timestamp
+}
+
+blocks [icon: slash, color: red] {
+  id string pk
+  blocker_id fk
+  blocked_id fk
+  created_at timestamp
+}
+
+likes [icon: thumbs-up, color: pink] {
+  id string pk
+  user_id string fk
+  post_id string fk
+  comment_id string fk
+  created_at timestamp
+}
+
+stories [icon: file, color: cyan] {
+  id string pk
+  user_id string fk
+  image string
+  created_at timestamp
+  expires_at timestamp
+}
+
+DEFINE RELATIONSHIPS
+users.id <> follow_request.sender_id
+users.id <> follow_request.receiver_id
+users.id <> followers.follower_id
+users.id <> blocks.blocker_id
+users.id <> blocks.blocked_id
+users.id <> posts.user_id
+users.id <> comments.user_id
+users.id <> likes.user_id
+users.id <> stories.user_id
+posts.id <> comments.post_id
+posts.id <> likes.post_id
