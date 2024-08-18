@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* No Horizontal Scrollbar */
+.xscrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.xscrollbar-hide {
+  scrollbar-width: none;
+}
