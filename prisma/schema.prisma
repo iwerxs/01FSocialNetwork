@@ -12,3 +12,12 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+// Test Table
+model Test {
+  id int @id @default(autoincrement())
+  name String @db.VarChar(255)
+  desc String?
+  number int
+  isPublished Boolean
+}
