@@ -15,9 +15,9 @@ datasource db {
 
 // Test Table
 model Test {
-  id int @id @default(autoincrement())
+  id Int @id @default(autoincrement())
   name String @db.VarChar(255)
   desc String?
-  number int
+  number Int
   isPublished Boolean
 }
