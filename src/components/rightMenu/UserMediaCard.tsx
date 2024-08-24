@@ -1,4 +1,4 @@
-//src/components/UserMediaCard.tsx
+//src/components/rightMenu/UserMediaCard.tsx
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";

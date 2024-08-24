@@ -1,6 +1,6 @@
-//src/component/RightMenu.tsx
+//src/component/rightMenu/RightMenu.tsx
 import React, { Suspense } from "react";
-import Advert from "./Advert";
+import Advert from "../Advert";
 import Birthdays from "./Birthdays";
 import FriendRequest from "./FriendRequest";
 import UserInfoCard from "./UserInfoCard";
