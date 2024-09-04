@@ -67,12 +67,31 @@ export async function POST(req: Request) {
           avatar: JSON.parse(body).data.image_url || "/noAvatar.png",
           coverPic: "/noCover.png",
         }
-      })
+      });
+      return new Response("user created", {status:200});
+    } catch (error) {
+      console.log(error)
+      return new Response("Failed", {status:500})
+    }
+  }
+  // update user via prisma, check credentials
+  if(eventType === "user.updated"){
+    try {
+      await prisma.user.update({
+        where:{
+          id:evt.data.id
+        },
+        data: {
+          username: JSON.parse(body).data.username,
+          avatar: JSON.parse(body).data.image_url || "/noAvatar.png",
+        }
+      });
+      return new Response("user updated", {status:200});
     } catch (error) {
       console.log(error)
       return new Response("Failed", {status:500})
     }
   }
 
-  return new Response('', { status: 200 })
+  return new Response('webhook received', { status: 200 })
 }
